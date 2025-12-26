@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFE 25-26 | Trouvez votre PFE Book</title>
+  <meta name="description" content="Plateforme pour les étudiants à la recherche de PFE Books. Découvrez les opportunités de stage de fin d'études.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animation"></div>
+  
+  <!-- Floating Particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <span class="logo-text">PFE 25-26</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Accueil</a></li>
+        <li><a href="#pfebooks" class="nav-link">PFE Books</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap"></i>
+        Année universitaire 2025-2026
+      </div>
+      <h1 class="hero-title">
+        <span class="gradient">PFE Books</span> Disponibles
+      </h1>
+      <p class="hero-subtitle">
+        Consultez les PFE Books disponibles pour l'année universitaire 2025-2026.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number" id="companies-count">0</div>
+          <div class="stat-label">Entreprises</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" id="pfebooks-count">0</div>
+          <div class="stat-label">PFE Books</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">2025</div>
+          <div class="stat-label">Année</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#pfebooks" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+          Explorer les PFE Books
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Rechercher une entreprise...">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- PFE Books Grid -->
+  <section class="pfebooks-section" id="pfebooks">
+    <div class="section-header">
+      <h2 class="section-title">Nos PFE Books</h2>
+      <p class="section-subtitle">Cliquez sur une carte pour découvrir les opportunités</p>
+    </div>
+    <div class="pfebooks-grid" id="pfebooks-grid">
+      <!-- Cards will be dynamically generated -->
+      <div class="loading">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+    <div class="no-results" id="no-results" style="display: none;">
+      <i class="fas fa-search"></i>
+      <h3>Aucun résultat trouvé</h3>
+      <p>Essayez de modifier votre recherche ou les filtres</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="developer-info">
+        <img src="gobji.png" alt="Oussama Gobji" class="developer-photo">
+        <div class="developer-text">
+          <p class="developer-name">Développé par <strong>Oussama Gobji</strong></p>
+          <p class="developer-title">Étudiant en M2 Ingénierie Automobile et Aéronautique</p>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/oussamagobji" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/oussamagobji/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+    <p class="footer-copyright">© 2025 PFE 25-26. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scroll-top" title="Retour en haut">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

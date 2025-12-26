@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin | PFE 25-26</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+  <div class="admin-page">
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <nav class="admin-nav">
+        <a href="index.html" class="admin-logo">
+          <div class="admin-logo-icon">📚</div>
+          <span class="admin-logo-text">PFE 25-26</span>
+          <span class="admin-logo-badge">Admin</span>
+        </a>
+        <div class="admin-actions">
+          <a href="index.html" class="admin-btn admin-btn-secondary">
+            <i class="fas fa-eye"></i>
+            Voir le site
+          </a>
+          <button id="logout-btn" class="admin-btn admin-btn-danger">
+            <i class="fas fa-sign-out-alt"></i>
+            Déconnexion
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Admin Content -->
+    <main class="admin-content">
+      <!-- Welcome Section -->
+      <div class="admin-welcome">
+        <h1>👋 Bienvenue, Admin!</h1>
+        <p>Gérez les PFE Books depuis ce tableau de bord.</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="total-companies">0</h3>
+            <p>Entreprises</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon pink">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="total-pdfs">0</h3>
+            <p>PDF disponibles</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon teal">
+            <i class="fas fa-tags"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="total-tags">0</h3>
+            <p>Tags uniques</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add PFE Book Section -->
+      <section class="add-pfebook-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-plus-circle"></i>
+            Ajouter un PFE Book
+          </h2>
+        </div>
+        <form id="add-pfebook-form" class="add-form">
+          <div class="form-group">
+            <label class="form-label">Nom de l'entreprise *</label>
+            <input 
+              type="text" 
+              id="company-name" 
+              class="form-input" 
+              placeholder="Ex: ACTIA Engineering Services"
+              required
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Image de l'entreprise</label>
+            <select id="company-image" class="form-select">
+              <option value="">Sélectionnez une image...</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Fichier PDF</label>
+            <select id="company-pdf" class="form-select">
+              <option value="">Sélectionnez un PDF...</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Lien LinkedIn</label>
+            <input 
+              type="url" 
+              id="linkedin-url" 
+              class="form-input" 
+              placeholder="https://www.linkedin.com/posts/..."
+            >
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Tags (appuyez sur Entrée pour ajouter)</label>
+            <div class="tags-input" id="tags-input">
+              <input type="text" id="tag-input" placeholder="Ajouter un tag...">
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn-reset" id="reset-form">
+              <i class="fas fa-undo"></i>
+              Réinitialiser
+            </button>
+            <button type="submit" class="btn-add">
+              <i class="fas fa-plus"></i>
+              Ajouter le PFE Book
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- PFE Books List -->
+      <section class="pfebooks-list">
+        <div class="list-header">
+          <h2 class="list-title">📋 Liste des PFE Books</h2>
+          <div class="list-search">
+            <input type="text" id="list-search" placeholder="Rechercher...">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        <table class="pfebook-table">
+          <thead>
+            <tr>
+              <th>Entreprise</th>
+              <th>Tags</th>
+              <th>LinkedIn</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="pfebooks-tbody">
+            <!-- Rows will be dynamically generated -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">⚠️ Confirmer la suppression</h3>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Êtes-vous sûr de vouloir supprimer ce PFE Book ? Cette action est irréversible.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-reset" id="cancel-delete">Annuler</button>
+          <button class="btn-add" style="background: var(--danger);" id="confirm-delete">
+            <i class="fas fa-trash"></i>
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

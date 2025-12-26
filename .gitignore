@@ -1,0 +1,13 @@
+# Excel temp files
+~$*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/

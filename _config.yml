@@ -1,0 +1,5 @@
+# PFE 25-26 Platform - GitHub Pages
+
+# Don't process these folders with Jekyll
+pfebooks/
+img/
